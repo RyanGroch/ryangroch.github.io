@@ -36,7 +36,7 @@ const social_links = [
 ---
 
 <header
-  class="sticky top-0 z-10 flex flex-col items-center justify-center border-b-4 border-primary bg-tertiary p-2 transition-transform duration-300 md:flex-row md:justify-between"
+  class="sticky top-0 z-10 flex flex-col items-center justify-center border-b-[3px] border-primary bg-tertiary p-2 transition-transform duration-300 md:flex-row md:justify-between"
   id="navbar"
 >
   <nav class="py-2 md:py-0">
@@ -45,7 +45,7 @@ const social_links = [
         section_links.map((link) => (
           <li>
             <a
-              class="font-fancy text-2xl font-medium text-primary xs:text-3xl"
+              class="font-fancy text-2xl font-medium text-primary transition-colors duration-300 hover:text-secondary xs:text-3xl"
               href={link.href}
             >
               {link.text}
@@ -55,17 +55,17 @@ const social_links = [
       }
     </ul>
   </nav>
-  <ul class="flex items-center justify-center gap-4 px-2">
+  <ul class="flex items-center justify-center gap-2 px-2">
     {
       social_links.map((link) => (
-        <li>
+        <li class="text-secondary transition-colors duration-300 hover:text-primary">
           <a
             class="flex flex-col items-center justify-center"
             href={link.href}
             target="_blank"
           >
-            <Icon name={link.icon} class="text-2xl text-secondary" />
-            <span class="font-fancy text-xl text-primary">{link.text}</span>
+            <Icon name={link.icon} class="text-2xl" />
+            <span class="text-md font-fancy text-primary">{link.text}</span>
           </a>
         </li>
       ))

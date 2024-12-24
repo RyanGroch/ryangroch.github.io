@@ -26,12 +26,12 @@ const bullet_points = [
 ];
 ---
 
-<section class="pt-20 min-h-[100svh]" id="about-me">
+<section class="min-h-[100svh] pt-20" id="about-me">
   <div
     class="grid grid-rows-[auto_auto_auto] md:grid-cols-2 md:grid-rows-[auto_auto] md:place-items-center"
   >
     <h2
-      class="place-self-end justify-self-center font-fancy text-primary text-6xl md:col-start-2 lg:text-8xl"
+      class="place-self-end justify-self-center font-fancy text-6xl text-primary md:col-start-2 lg:text-8xl"
     >
       Hey, I'm Ryan
     </h2>
@@ -48,7 +48,7 @@ const bullet_points = [
               name={item.icon}
               class={`${i % 2 ? "text-secondary" : "text-primary"} w-16 self-center pr-2 text-6xl`}
             />
-            <span class="self-center font-fancy text-white text-2xl">
+            <span class="self-center font-fancy text-2xl text-white lg:text-4xl">
               {item.text}
             </span>
           </li>

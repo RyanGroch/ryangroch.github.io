@@ -5,12 +5,12 @@ import { Icon } from "astro-icon/components";
 <section class="relative flex min-h-[90svh] flex-col justify-center">
   <div class="pb-48 pt-8">
     <h1
-      class="px-8 pb-4 text-center font-neon text-6xl tracking-wider text-primary xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl"
+      class="px-8 pb-4 text-center font-neon text-6xl tracking-wider text-primary shadow-primary xs:text-6xl sm:text-7xl md:text-8xl lg:text-[10rem]"
     >
       R<span class="blinker-1">y</span>an Groch
     </h1>
     <h2
-      class="text-center font-neon text-[2.3rem] tracking-widest text-secondary xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
+      class="text-center font-neon text-[2.3rem] tracking-widest text-secondary shadow-secondary xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
     >
       So<span class="blinker-2">f</span>tware Dev<span class="blinker-3">e</span
       >loper
@@ -19,12 +19,9 @@ import { Icon } from "astro-icon/components";
   <div class="absolute bottom-24 left-0 right-0 flex justify-center">
     <a href="#about-me">
       <button
-        class="flex h-12 w-12 items-center justify-center rounded-full border-2 border-secondary bg-tertiary sm:h-16 sm:w-16"
+        class="animate-levitate flex h-12 w-12 items-center justify-center rounded-full border-2 border-secondary bg-tertiary text-primary transition-all duration-500 hover:scale-[1.1] hover:border-primary hover:text-secondary sm:h-16 sm:w-16"
       >
-        <Icon
-          name="fa6-solid:caret-down"
-          class="text-2xl text-primary sm:text-3xl"
-        />
+        <Icon name="fa6-solid:caret-down" class="text-2xl sm:text-3xl" />
       </button>
     </a>
   </div>
