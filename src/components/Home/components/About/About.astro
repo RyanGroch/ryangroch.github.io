@@ -1,0 +1,59 @@
+---
+import { Icon } from "astro-icon/components";
+import imageOfMe from "../../../../assets/me.png";
+
+const bullet_points = [
+  {
+    icon: "fa6-solid:mobile-screen-button",
+    text: "~3 years of self-taught programming experience",
+  },
+  {
+    icon: "fa6-brands:react",
+    text: "HTML, CSS, SASS, JavaScript, TypeScript, React, Next.js",
+  },
+  {
+    icon: "fa6-brands:linux",
+    text: "Linux, Bash",
+  },
+  {
+    icon: "fa6-brands:python",
+    text: "Python, numpy, pandas, matplotlib",
+  },
+  {
+    icon: "fa6-brands:github",
+    text: "Git and GitHub",
+  },
+];
+---
+
+<section class="pt-20 min-h-[100svh]" id="about-me">
+  <div
+    class="grid grid-rows-[auto_auto_auto] md:grid-cols-2 md:grid-rows-[auto_auto] md:place-items-center"
+  >
+    <h2
+      class="place-self-end justify-self-center font-fancy text-primary text-6xl md:col-start-2 lg:text-8xl"
+    >
+      Hey, I'm Ryan
+    </h2>
+    <img
+      class="w-full xs:p-4 sm:p-16 md:row-span-2 md:row-start-1 md:p-8 lg:p-16"
+      src={imageOfMe.src}
+      alt="Me"
+    />
+    <ul class="md:col-start-2">
+      {
+        bullet_points.map((item, i) => (
+          <li class="grid grid-cols-[1fr_7fr] gap-2 px-4 pb-6">
+            <Icon
+              name={item.icon}
+              class={`${i % 2 ? "text-secondary" : "text-primary"} w-16 self-center pr-2 text-6xl`}
+            />
+            <span class="self-center font-fancy text-white text-2xl">
+              {item.text}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

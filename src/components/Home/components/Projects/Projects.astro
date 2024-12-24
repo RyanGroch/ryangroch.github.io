@@ -1,0 +1,81 @@
+---
+import lightspeedImage from "../../../../assets/lst.png";
+import othelloImage from "../../../../assets/othello.png";
+import sudokuImage from "../../../../assets/sudoku.png";
+
+const projects = [
+  {
+    name: "Lightspeed Triggers",
+    image: lightspeedImage.src,
+    description:
+      "An ecommerce store that integrates with Stripe. Includes cart functionality for visitors of the site, and CRUD functionality for the administrator.",
+    tools: "Next.js · Typescript · Prisma · TailwindCSS",
+    project_href: "https://lightspeedtriggers.com",
+    source_code_href: "",
+  },
+  {
+    name: "Othello AI",
+    image: othelloImage.src,
+    description:
+      "An app which allows the user to play Othello - a two player strategy game comparable to Chess or Checkers. The AI uses a minimax algorithm and plays fairly well on higher difficulties.",
+    tools: "React · Vite · Typescript",
+    project_href: "https://ryangroch.github.io/othello-ai-v2/",
+    source_code_href: "https://github.com/ryangroch/othello-ai-v2",
+  },
+  {
+    name: "Sudoku Generator",
+    image: sudokuImage.src,
+    description:
+      "This app generates random Sudoku puzzles through recursive backtracking, and allows the user to solve the puzzles. It can also visualize the solving algorithm.",
+    tools: "Vanilla JS · Vite · SASS",
+    project_href: "https://ryangroch.github.io/sudoku-v2/",
+    source_code_href: "https://github.com/ryangroch/sudoku-v2",
+  },
+];
+---
+
+<section class="min-h-[90svh] pt-36" id="portfolio">
+  <h2
+    class="pb-4 text-center font-neon text-[2.75rem] tracking-wider text-secondary xs:text-6xl sm:text-7xl lg:text-8xl"
+  >
+    Po<span class="blinker-1">r</span>tfolio
+  </h2>
+  <div class="grid gap-6 pb-6 md:grid-cols-2 md:gap-0">
+    {
+      projects.map((project) => (
+        <article class="p-2 xs:p-4 sm:p-7 md:p-14">
+          <div class="flex justify-center">
+            <h3 class="decoration-3 text-center font-fancy text-3xl text-primary underline decoration-secondary underline-offset-4 xs:text-4xl md:text-5xl">
+              <a href={project.project_href}>{project.name}</a>
+            </h3>
+          </div>
+          <div>
+            <a href={project.project_href}>
+              <img src={project.image} alt={`${project.name} Screenshot`} />
+            </a>
+          </div>
+          <p class="pb-2 text-center text-xl text-white sm:text-2xl">
+            {project.description}
+          </p>
+          <p class="pb-2 text-center text-lg text-primary sm:text-xl">
+            {project.tools}
+          </p>
+          <p class="text-center text-lg text-primary sm:text-xl">
+            <a class="underline" href={project.project_href}>
+              Visit App
+            </a>
+            {project.source_code_href && (
+              <>
+                {" "}
+                |{" "}
+                <a class="underline" href={project.source_code_href}>
+                  Source Code
+                </a>
+              </>
+            )}
+          </p>
+        </article>
+      ))
+    }
+  </div>
+</section>

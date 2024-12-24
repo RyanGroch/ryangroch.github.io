@@ -1,0 +1,98 @@
+---
+import { Icon } from "astro-icon/components";
+
+const section_links = [
+  {
+    text: "About",
+    href: "#about-me",
+  },
+  {
+    text: "Portfolio",
+    href: "#portfolio",
+  },
+  {
+    text: "Contact",
+    href: "#contact-me",
+  },
+];
+
+const social_links = [
+  {
+    text: "GitHub",
+    href: "https://github.com/ryangroch",
+    icon: "fa6-brands:square-github",
+  },
+  {
+    text: "Resume",
+    href: "https://ryangroch.github.io/resume",
+    icon: "fa6-solid:file-lines",
+  },
+  {
+    text: "LinkedIN",
+    href: "https://www.linkedin.com/in/ryan-groch/",
+    icon: "fa6-brands:linkedin",
+  },
+];
+---
+
+<header
+  class="sticky top-0 z-10 flex flex-col items-center justify-center border-b-4 border-primary bg-tertiary p-2 transition-transform duration-300 md:flex-row md:justify-between"
+  id="navbar"
+>
+  <nav class="py-2 md:py-0">
+    <ul class="flex items-center justify-center gap-4 px-2">
+      {
+        section_links.map((link) => (
+          <li>
+            <a
+              class="font-fancy text-2xl font-medium text-primary xs:text-3xl"
+              href={link.href}
+            >
+              {link.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <ul class="flex items-center justify-center gap-4 px-2">
+    {
+      social_links.map((link) => (
+        <li>
+          <a
+            class="flex flex-col items-center justify-center"
+            href={link.href}
+            target="_blank"
+          >
+            <Icon name={link.icon} class="text-2xl text-secondary" />
+            <span class="font-fancy text-xl text-primary">{link.text}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</header>
+
+<script>
+  const navbar = document.querySelector("#navbar");
+  if (!navbar) throw new Error("Navbar should exist.");
+
+  let last_scroll_pos = 0;
+  let ticking = false;
+
+  document.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        // If scrolling down, hide navbar. If scrolling up, show navbar.
+        const method = window.scrollY > last_scroll_pos ? "add" : "remove";
+        navbar.classList[method]("-translate-y-32", "md:-translate-y-20");
+
+        // Make sure that we're ready for the next time the user scrolls
+        ticking = false;
+        last_scroll_pos = window.scrollY;
+      });
+
+      ticking = true;
+    }
+  });
+</script>
