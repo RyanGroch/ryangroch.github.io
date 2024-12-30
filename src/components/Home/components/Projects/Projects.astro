@@ -2,6 +2,7 @@
 import lightspeedImage from "../../../../assets/lst.png";
 import othelloImage from "../../../../assets/othello.png";
 import sudokuImage from "../../../../assets/sudoku.png";
+import { PROJECTS_ID } from "../../utils/section-id-list";
 
 const projects = [
   {
@@ -34,11 +35,11 @@ const projects = [
 ];
 ---
 
-<section class="min-h-[90svh] pt-36" id="portfolio">
+<section class="min-h-[90svh] pt-36" id={PROJECTS_ID}>
   <h2
     class="pb-4 text-center font-neon text-[2.75rem] tracking-wider text-secondary shadow-secondary xs:text-6xl sm:text-7xl lg:text-8xl"
   >
-    Po<span class="blinker-1">r</span>tfolio
+    P<span class="animate-blink1">o</span>rtfolio
   </h2>
   <div class="grid gap-6 pb-6 md:grid-cols-2 md:gap-0">
     {
@@ -51,7 +52,11 @@ const projects = [
           </div>
           <div>
             <a href={project.project_href}>
-              <img src={project.image} alt={`${project.name} Screenshot`} />
+              <img
+                class="paused animate-rise-appear opacity-0"
+                src={project.image}
+                alt={`${project.name} Screenshot`}
+              />
             </a>
           </div>
           <p class="pb-2 text-center text-xl text-white sm:text-2xl">
@@ -79,3 +84,13 @@ const projects = [
     }
   </div>
 </section>
+
+<script>
+  import observer from "../../utils/observer";
+  import { PROJECTS_ID } from "../../utils/section-id-list";
+
+  const laptop_imgs = document.querySelectorAll(`#${PROJECTS_ID} article img`);
+  if (!laptop_imgs.length) throw new Error("No projects found.");
+
+  laptop_imgs.forEach((image) => observer.observe(image));
+</script>

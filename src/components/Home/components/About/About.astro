@@ -1,32 +1,38 @@
 ---
 import { Icon } from "astro-icon/components";
 import imageOfMe from "../../../../assets/me.png";
+import { ABOUT_ID } from "../../utils/section-id-list";
 
 const bullet_points = [
   {
     icon: "fa6-solid:mobile-screen-button",
     text: "~3 years of self-taught programming experience",
+    animation: "animate-bounce-in-1",
   },
   {
     icon: "fa6-brands:react",
     text: "HTML, CSS, SASS, JavaScript, TypeScript, React, Next.js",
+    animation: "animate-bounce-in-2",
   },
   {
     icon: "fa6-brands:linux",
     text: "Linux, Bash",
+    animation: "animate-bounce-in-3",
   },
   {
     icon: "fa6-brands:python",
     text: "Python, numpy, pandas, matplotlib",
+    animation: "animate-bounce-in-4",
   },
   {
     icon: "fa6-brands:github",
     text: "Git and GitHub",
+    animation: "animate-bounce-in-5",
   },
 ];
 ---
 
-<section class="min-h-[100svh] pt-20" id="about-me">
+<section class="min-h-[100svh] overflow-hidden pt-20" id={ABOUT_ID}>
   <div
     class="grid grid-rows-[auto_auto_auto] md:grid-cols-2 md:grid-rows-[auto_auto] md:place-items-center"
   >
@@ -43,7 +49,9 @@ const bullet_points = [
     <ul class="md:col-start-2">
       {
         bullet_points.map((item, i) => (
-          <li class="grid grid-cols-[1fr_7fr] gap-2 px-4 pb-6">
+          <li
+            class={`${item.animation} paused grid scale-0 grid-cols-[1fr_7fr] gap-2 px-4 pb-6`}
+          >
             <Icon
               name={item.icon}
               class={`${i % 2 ? "text-secondary" : "text-primary"} w-16 self-center pr-2 text-6xl`}
@@ -57,3 +65,13 @@ const bullet_points = [
     </ul>
   </div>
 </section>
+
+<script>
+  import observer from "../../utils/observer";
+  import { ABOUT_ID } from "../../utils/section-id-list";
+
+  const about_section = document.querySelector(`#${ABOUT_ID}`);
+  if (!about_section) throw new Error("About-me section should exist.");
+
+  observer.observe(about_section);
+</script>

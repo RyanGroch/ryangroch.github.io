@@ -1,18 +1,27 @@
 ---
 import { Icon } from "astro-icon/components";
+import {
+  NAVBAR_ID,
+  ABOUT_ID,
+  PROJECTS_ID,
+  CONTACT_ID,
+} from "../../utils/section-id-list";
 
 const section_links = [
   {
     text: "About",
-    href: "#about-me",
+    href: `#${ABOUT_ID}`,
+    animation: "animate-grow-1",
   },
   {
     text: "Portfolio",
-    href: "#portfolio",
+    href: `#${PROJECTS_ID}`,
+    animation: "animate-grow-2",
   },
   {
     text: "Contact",
-    href: "#contact-me",
+    href: `#${CONTACT_ID}`,
+    animation: "animate-grow-3",
   },
 ];
 
@@ -21,29 +30,32 @@ const social_links = [
     text: "GitHub",
     href: "https://github.com/ryangroch",
     icon: "fa6-brands:square-github",
+    animation: "animate-grow-3",
   },
   {
     text: "Resume",
     href: "https://ryangroch.github.io/resume",
     icon: "fa6-solid:file-lines",
+    animation: "animate-grow-2",
   },
   {
-    text: "LinkedIN",
+    text: "LinkedIn",
     href: "https://www.linkedin.com/in/ryan-groch/",
     icon: "fa6-brands:linkedin",
+    animation: "animate-grow-1",
   },
 ];
 ---
 
 <header
   class="sticky top-0 z-10 flex flex-col items-center justify-center border-b-[3px] border-primary bg-tertiary p-2 transition-transform duration-300 md:flex-row md:justify-between"
-  id="navbar"
+  id={NAVBAR_ID}
 >
   <nav class="py-2 md:py-0">
     <ul class="flex items-center justify-center gap-4 px-2">
       {
         section_links.map((link) => (
-          <li>
+          <li class={`${link.animation} scale-0`}>
             <a
               class="font-fancy text-2xl font-medium text-primary transition-colors duration-300 hover:text-secondary xs:text-3xl"
               href={link.href}
@@ -58,7 +70,9 @@ const social_links = [
   <ul class="flex items-center justify-center gap-2 px-2">
     {
       social_links.map((link) => (
-        <li class="text-secondary transition-colors duration-300 hover:text-primary">
+        <li
+          class={`scale-0 text-secondary transition-colors duration-300 hover:text-primary ${link.animation}`}
+        >
           <a
             class="flex flex-col items-center justify-center"
             href={link.href}
@@ -74,7 +88,9 @@ const social_links = [
 </header>
 
 <script>
-  const navbar = document.querySelector("#navbar");
+  import { NAVBAR_ID } from "../../utils/section-id-list";
+
+  const navbar = document.querySelector(`#${NAVBAR_ID}`);
   if (!navbar) throw new Error("Navbar should exist.");
 
   let last_scroll_pos = 0;
