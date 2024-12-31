@@ -1,9 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
+import { ABOUT_ID } from "../../utils/section-id-list";
 ---
 
-<section class="relative flex min-h-[90svh] flex-col justify-center">
-  <div class="pb-48 pt-8">
+<section class="relative flex min-h-[95svh] flex-col">
+  <div class="pt-[20svh]">
     <h1
       class="animate-flash px-8 pb-4 text-center font-neon text-6xl tracking-wider text-primary shadow-primary xs:text-6xl sm:text-7xl md:text-8xl lg:text-[10rem]"
     >
@@ -15,10 +16,10 @@ import { Icon } from "astro-icon/components";
       So<span class="animate-blink2">f</span>tware Developer
     </h2>
   </div>
-  <div class="absolute bottom-24 left-0 right-0 flex justify-center">
-    <a href="#about-me">
+  <div class="mt-auto flex justify-center pb-[20svh] pt-8">
+    <a href={`#${ABOUT_ID}`}>
       <button
-        class="animate-gentle-bob flex h-12 w-12 items-center justify-center rounded-full border-2 border-secondary bg-tertiary text-primary opacity-0 transition-all duration-500 hover:scale-[1.1] hover:border-primary hover:text-secondary sm:h-16 sm:w-16"
+        class="flex h-12 w-12 animate-gentle-bob items-center justify-center rounded-full border-2 border-secondary bg-tertiary text-primary opacity-0 transition-all duration-500 hover:scale-[1.1] hover:border-primary hover:text-secondary sm:h-16 sm:w-16"
       >
         <Icon name="fa6-solid:caret-down" class="text-2xl sm:text-3xl" />
       </button>

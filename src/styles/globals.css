@@ -24,6 +24,10 @@ html {
     #ff3daa 0 0 20rem;
 }
 
+.shadow-normal {
+  text-shadow: #000 0.5rem 0.5rem 0;
+}
+
 .paused {
   animation-play-state: paused;
 }
