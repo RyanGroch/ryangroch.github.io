@@ -4,11 +4,12 @@ import othelloImage from "../../../../assets/othello.png";
 import sudokuImage from "../../../../assets/sudoku.png";
 import retrieveJobsImage from "../../../../assets/retrieve-jobs.png";
 import { PROJECTS_ID } from "../../utils/section-id-list";
+import { Image } from "astro:assets";
 
 const projects = [
   {
     name: "Retrieve Jobs",
-    image: retrieveJobsImage.src,
+    image: retrieveJobsImage,
     description:
       "An app that allows the user to download job output from mainframes. Available as a web app or a cross-platform desktop app. Reliably serves the needs of 100+ users.",
     tools: "Next.js · TypeScript · Rust · Tauri · TailwindCSS",
@@ -17,7 +18,7 @@ const projects = [
   },
   {
     name: "Lightspeed Triggers",
-    image: lightspeedImage.src,
+    image: lightspeedImage,
     description:
       "An ecommerce store that integrates with Stripe. Includes cart functionality for visitors of the site, and CRUD functionality for the administrator.",
     tools: "PHP · Laravel · React.js · TypeScript · TailwindCSS",
@@ -26,7 +27,7 @@ const projects = [
   },
   {
     name: "Othello AI",
-    image: othelloImage.src,
+    image: othelloImage,
     description:
       "An app which allows the user to play Othello - a two player strategy game comparable to Chess or Checkers. The AI uses a minimax algorithm and plays fairly well on higher difficulties.",
     tools: "React · Vite · TypeScript",
@@ -35,7 +36,7 @@ const projects = [
   },
   {
     name: "Sudoku Generator",
-    image: sudokuImage.src,
+    image: sudokuImage,
     description:
       "This app generates random Sudoku puzzles through recursive backtracking, and allows the user to solve the puzzles. It can also visualize the solving algorithm.",
     tools: "Vanilla JS · Vite · SASS",
@@ -63,7 +64,7 @@ const projects = [
             </div>
             <div>
               <a href={project.project_href}>
-                <img
+                <Image
                   class="paused animate-rise-appear opacity-0"
                   src={project.image}
                   alt={`${project.name} Screenshot`}

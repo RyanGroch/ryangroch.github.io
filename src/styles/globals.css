@@ -2,26 +2,22 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: #455a64;
+}
+
 .shadow-primary {
   text-shadow:
     #27fdf5 0.1rem 0.1rem 0.2rem,
     #27fdf5 0.2rem 0.2rem 0.4rem,
-    #27fdf5 0 0 1.25rem,
-    #27fdf5 0 0 2.5rem,
-    #27fdf5 0 0 5rem,
-    #27fdf5 0 0 10rem,
-    #27fdf5 0 0 20rem;
+    #27fdf5 0 0 1.25rem;
 }
 
 .shadow-secondary {
   text-shadow:
     #ff3daa 0.1rem 0.1rem 0.2rem,
     #ff3daa 0.2rem 0.2rem 0.4rem,
-    #ff3daa 0 0 1.25rem,
-    #ff3daa 0 0 2.5rem,
-    #ff3daa 0 0 5rem,
-    #ff3daa 0 0 10rem,
-    #ff3daa 0 0 20rem;
+    #ff3daa 0 0 1.25rem;
 }
 
 .shadow-normal {

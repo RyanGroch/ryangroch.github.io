@@ -1,19 +1,20 @@
 ---
 import astro_logo from "../../../../assets/astro-logo.svg";
+import { Image } from "astro:assets";
 ---
 
 <footer class="py-4 text-center text-white">
   <p class="pb-2">
     Built with
     <a href="https://astro.build/" target="_blank">
-      <img class="inline-block w-28" src={astro_logo.src} />
+      <Image class="inline-block w-28" alt="Astro Logo" src={astro_logo} />
     </a>
   </p>
   <p>
-    View source code <a
+    <a
       class="text-primary underline"
       href="https://github.com/RyanGroch/Portfolio-Site"
-      target="_blank">here</a
+      target="_blank">View Source Code</a
     >
   </p>
 </footer>

@@ -27,21 +27,21 @@ const section_links = [
 
 const social_links = [
   {
+    text: "Resume",
+    href: "/resume.pdf",
+    icon: "fa6-solid:file-lines",
+    animation: "animate-grow-3",
+  },
+  {
     text: "GitHub",
     href: "https://github.com/ryangroch",
     icon: "fa6-brands:square-github",
-    animation: "animate-grow-3",
+    animation: "animate-grow-2",
   },
   {
     text: "LinkedIn",
     href: "https://www.linkedin.com/in/ryan-groch/",
     icon: "fa6-brands:linkedin",
-    animation: "animate-grow-2",
-  },
-  {
-    text: "Resume",
-    href: "/resume.pdf",
-    icon: "fa6-solid:file-lines",
     animation: "animate-grow-1",
   },
 ];
@@ -67,7 +67,7 @@ const social_links = [
       }
     </ul>
   </nav>
-  <ul class="flex items-center justify-center gap-2 px-2">
+  <ul class="flex items-center justify-center gap-3 px-2">
     {
       social_links.map((link) => (
         <li
@@ -79,36 +79,12 @@ const social_links = [
             target="_blank"
           >
             <Icon name={link.icon} class="text-3xl" />
-            <span class="font-fancy text-lg text-primary">{link.text}</span>
+            <span class="font-fancy text-xl text-primary sm:text-2xl">
+              {link.text}
+            </span>
           </a>
         </li>
       ))
     }
   </ul>
 </header>
-
-<script>
-  import { NAVBAR_ID } from "../../utils/section-id-list";
-
-  const navbar = document.querySelector(`#${NAVBAR_ID}`);
-  if (!navbar) throw new Error("Navbar should exist.");
-
-  let last_scroll_pos = 0;
-  let ticking = false;
-
-  document.addEventListener("scroll", () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        // If scrolling down, hide navbar. If scrolling up, show navbar.
-        const method = window.scrollY > last_scroll_pos ? "add" : "remove";
-        navbar.classList[method]("-translate-y-36", "md:-translate-y-20");
-
-        // Make sure that we're ready for the next time the user scrolls
-        ticking = false;
-        last_scroll_pos = window.scrollY;
-      });
-
-      ticking = true;
-    }
-  });
-</script>

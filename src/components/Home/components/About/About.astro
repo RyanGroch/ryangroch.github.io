@@ -2,11 +2,12 @@
 import { Icon } from "astro-icon/components";
 import imageOfMe from "../../../../assets/me.png";
 import { ABOUT_ID } from "../../utils/section-id-list";
+import { Image } from "astro:assets";
 
 const bullet_points = [
   {
     icon: "fa6-solid:laptop-code",
-    text: "~3 years of web development experience",
+    text: "~3 years of software (especially web) development experience",
     animation: "animate-bounce-in-1",
   },
   {
@@ -41,10 +42,10 @@ const bullet_points = [
     >
       Hey, I'm Ryan
     </h2>
-    <img
+    <Image
       class="w-full xs:p-4 sm:p-16 md:row-span-2 md:row-start-1 md:p-8 lg:p-16"
-      src={imageOfMe.src}
-      alt="Me"
+      src={imageOfMe}
+      alt="Ryan Groch"
     />
     <ul class="md:col-start-2">
       {
