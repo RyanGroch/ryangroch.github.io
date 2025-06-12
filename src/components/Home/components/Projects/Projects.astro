@@ -49,16 +49,16 @@ const projects = [
 <section class="flex justify-center pt-36" id={PROJECTS_ID}>
   <div class="container">
     <h2
-      class="pb-4 text-center font-neon text-[2.75rem] tracking-wider text-secondary shadow-secondary xs:text-6xl sm:text-7xl lg:text-8xl"
+      class="font-neon text-secondary shadow-secondary xs:text-6xl pb-4 text-center text-[2.75rem] tracking-wider sm:text-7xl lg:text-8xl"
     >
       P<span class="animate-blink1">o</span>rtfolio
     </h2>
     <div class="grid gap-6 pb-6 lg:grid-cols-2 lg:gap-0">
       {
         projects.map((project) => (
-          <article class="p-2 xs:p-4 sm:p-7 lg:p-14">
+          <article class="xs:p-4 p-2 sm:p-7 lg:p-14">
             <div class="flex justify-center">
-              <h3 class="decoration-3 text-center font-fancy text-3xl text-primary underline decoration-secondary underline-offset-4 xs:text-4xl md:text-5xl">
+              <h3 class="font-fancy text-primary decoration-secondary xs:text-4xl text-center text-3xl underline decoration-3 underline-offset-4 md:text-5xl">
                 <a href={project.project_href}>{project.name}</a>
               </h3>
             </div>
@@ -74,10 +74,10 @@ const projects = [
             <p class="pb-2 text-center text-xl text-white sm:text-2xl">
               {project.description}
             </p>
-            <p class="pb-2 text-center text-lg text-primary sm:text-xl">
+            <p class="text-primary pb-2 text-center text-lg sm:text-xl">
               {project.tools}
             </p>
-            <p class="text-center text-lg text-primary sm:text-xl">
+            <p class="text-primary text-center text-lg sm:text-xl">
               <a class="underline" href={project.project_href}>
                 Visit App
               </a>
@@ -99,11 +99,13 @@ const projects = [
 </section>
 
 <script>
-  import observer from "../../utils/observer";
+  import observe from "../../utils/observer";
   import { PROJECTS_ID } from "../../utils/section-id-list";
 
-  const laptop_imgs = document.querySelectorAll(`#${PROJECTS_ID} article img`);
-  if (!laptop_imgs.length) throw new Error("No projects found.");
+  const laptopImgs = document.querySelectorAll(`#${PROJECTS_ID} article img`);
+  if (!laptopImgs.length) throw new Error("No projects found.");
 
-  laptop_imgs.forEach((image) => observer.observe(image));
+  laptopImgs.forEach((image) =>
+    observe(image, () => image.classList.remove("paused")),
+  );
 </script>

@@ -1,24 +1,30 @@
-import { ABOUT_ID } from "./section-id-list";
+// This file provides a simple abstraction over the
+// IntersectionObserver. This allows for the animation
+// logic in a component can be inside that component,
+// as opposed to having all the animation logic here.
+
+const observerMap = new Map<
+  Element,
+  (entry: IntersectionObserverEntry) => void
+>();
 
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-      switch (entry.target.id) {
-        case ABOUT_ID:
-          const about_items = document.querySelectorAll(`#${ABOUT_ID} ul > li`);
-          if (!about_items.length) throw new Error("No 'about' items found.");
 
-          about_items.forEach((item) => item.classList.remove("paused"));
+      const callback = observerMap.get(entry.target);
+      if (callback === undefined) return;
 
-          break;
-
-        default:
-          entry.target.classList.remove("paused");
-      }
+      callback(entry);
     });
   },
   { threshold: 0.35 },
 );
 
-export default observer;
+const observe = (element: Element, callback: () => void) => {
+  observerMap.set(element, callback);
+  observer.observe(element);
+};
+
+export default observe;

@@ -5,45 +5,45 @@ import { CONTACT_ID } from "../../utils/section-id-list";
 const SUBMIT_URL = "https://formsubmit.co/e135b400592435124a9c16ca224382e9";
 ---
 
-<section class="pb-16 pt-12" id={CONTACT_ID}>
+<section class="pt-12 pb-16" id={CONTACT_ID}>
   <h2
-    class="px-4 pb-2 text-center font-neon text-5xl tracking-wider text-secondary shadow-secondary xs:text-6xl sm:text-7xl lg:text-8xl"
+    class="font-neon text-secondary shadow-secondary xs:text-6xl px-4 pb-2 text-center text-5xl tracking-wider sm:text-7xl lg:text-8xl"
   >
     C<span class="animate-blink2">o</span>ntact Me
   </h2>
   <div class="flex justify-center px-4">
     <form
-      class="flex w-full flex-col gap-8 rounded-lg border-8 border-primary bg-linear-to-r from-black to-tertiary p-4 text-white sm:w-148 md:w-180 lg:w-240"
+      class="border-primary to-tertiary flex w-full flex-col gap-8 rounded-lg border-8 bg-linear-to-r from-black p-4 text-white sm:w-148 md:w-180 lg:w-240"
       action={SUBMIT_URL}
       method="POST"
     >
       <input type="hidden" name="_captcha" value="false" />
       <input
-        class="border-b-2 border-primary bg-transparent outline-none"
+        class="border-primary border-b-2 bg-transparent outline-none"
         name="name"
         placeholder="Name*"
         required
       />
       <input
-        class="border-b-2 border-primary bg-transparent outline-none"
+        class="border-primary border-b-2 bg-transparent outline-none"
         name="email"
         placeholder="Email*"
         required
       />
       <input
-        class="border-b-2 border-primary bg-transparent outline-none"
+        class="border-primary border-b-2 bg-transparent outline-none"
         name="subject"
         placeholder="Subject"
       />
       <textarea
-        class="border-b-2 border-primary bg-transparent outline-none"
+        class="border-primary border-b-2 bg-transparent outline-none"
         placeholder="Your Message...*"
         name="message"
         rows="10"
         required></textarea>
-      <div class="flex justify-center pb-2 pr-2 sm:justify-end">
+      <div class="flex justify-center pr-2 pb-2 sm:justify-end">
         <button
-          class="w-fit animate-grow-shrink self-center rounded-full border-4 border-secondary px-4 py-2 text-lg text-primary transition-all duration-500 hover:border-primary hover:bg-secondary"
+          class="animate-grow-shrink border-secondary text-primary hover:border-primary hover:bg-secondary w-fit cursor-pointer self-center rounded-full border-4 px-4 py-2 text-lg transition-all duration-500"
           type="submit">Send Message</button
         >
       </div>

@@ -33,17 +33,17 @@ const bullet_points = [
 ];
 ---
 
-<section class="flex justify-center overflow-hidden pb-16 pt-20" id={ABOUT_ID}>
+<section class="flex justify-center overflow-hidden pt-20 pb-16" id={ABOUT_ID}>
   <div
     class="container grid grid-rows-[auto_auto_auto] md:grid-cols-2 md:grid-rows-[auto_auto] md:place-items-center"
   >
     <h2
-      class="shadow-normal place-self-end justify-self-center font-fancy text-6xl text-primary md:col-start-2 lg:text-8xl"
+      class="shadow-normal font-fancy text-primary place-self-end justify-self-center text-6xl md:col-start-2 lg:text-8xl"
     >
       Hey, I'm Ryan
     </h2>
     <Image
-      class="w-full xs:p-4 sm:p-16 md:row-span-2 md:row-start-1 md:p-8 lg:p-16"
+      class="xs:p-4 w-full sm:p-16 md:row-span-2 md:row-start-1 md:p-8 lg:p-16"
       src={imageOfMe}
       alt="Ryan Groch"
     />
@@ -57,7 +57,7 @@ const bullet_points = [
               name={item.icon}
               class={`${i % 2 ? "text-secondary" : "text-primary"} w-16 self-center pr-2 text-6xl`}
             />
-            <span class="self-center font-fancy text-2xl text-white lg:text-4xl">
+            <span class="font-fancy self-center text-2xl text-white lg:text-4xl">
               {item.text}
             </span>
           </li>
@@ -68,11 +68,16 @@ const bullet_points = [
 </section>
 
 <script>
-  import observer from "../../utils/observer";
+  import observe from "../../utils/observer";
   import { ABOUT_ID } from "../../utils/section-id-list";
 
-  const about_section = document.querySelector(`#${ABOUT_ID}`);
-  if (!about_section) throw new Error("About-me section should exist.");
+  const aboutSection = document.querySelector(`#${ABOUT_ID}`);
+  if (!aboutSection) throw new Error("About-me section should exist.");
 
-  observer.observe(about_section);
+  observe(aboutSection, () => {
+    const aboutItems = aboutSection.querySelectorAll(`ul > li`);
+    if (!aboutItems.length) throw new Error("No 'about' items found.");
+
+    aboutItems.forEach((item) => item.classList.remove("paused"));
+  });
 </script>
