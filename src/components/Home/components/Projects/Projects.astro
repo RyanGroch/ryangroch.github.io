@@ -1,8 +1,11 @@
 ---
+import retrieveJobsImage from "../../../../assets/retrieve-jobs.png";
 import lightspeedImage from "../../../../assets/lst.png";
+import smallUrlImage from "../../../../assets/SmallUrl.png";
 import othelloImage from "../../../../assets/othello.png";
 import sudokuImage from "../../../../assets/sudoku.png";
-import retrieveJobsImage from "../../../../assets/retrieve-jobs.png";
+import logicSquareImage from "../../../../assets/LogicSquare.png";
+
 import { PROJECTS_ID } from "../../utils/section-id-list";
 import { Image } from "astro:assets";
 
@@ -26,6 +29,15 @@ const projects = [
     source_code_href: "",
   },
   {
+    name: "SmallUrl",
+    image: smallUrlImage,
+    description:
+      "A link shortener which includes CRUD functionality for shortened links, authentication, and QR codes.",
+    tools: "C# · ASP.NET Core · Entity Framework · Vanilla HTML/CSS/JavaScript",
+    project_href: "http://smallurl.runasp.net/",
+    source_code_href: "https://github.com/RyanGroch/SmallUrl",
+  },
+  {
     name: "Othello AI",
     image: othelloImage,
     description:
@@ -33,6 +45,15 @@ const projects = [
     tools: "React · Vite · TypeScript",
     project_href: "https://ryangroch.github.io/othello-ai-v2/",
     source_code_href: "https://github.com/ryangroch/othello-ai-v2",
+  },
+  {
+    name: "Logic Square",
+    image: logicSquareImage,
+    description:
+      "A logic-based puzzle game of my own invention, comparable to Sudoku. Uses a recursive backtracking algorithm to generate random puzzles and solve them. Also offers a visualization of the algorithm.",
+    tools: "React · Typescript",
+    project_href: "https://ryangroch.github.io/logic-square/",
+    source_code_href: "https://github.com/RyanGroch/logic-square",
   },
   {
     name: "Sudoku Generator",
